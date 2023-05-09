@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 // import Image from 'next/image'
 import Image from "@/components/Image";
 import { Inter } from "next/font/google";
-import { useQuery, useInfiniteQuery } from "react-query";
+import { useQuery, useInfiniteQuery, useQueryClient } from "react-query";
 import { getMovieLatest } from "@/services/TMDB/movie";
 import { getSearchMovie } from "@/services/TMDB/search";
 import axiosLib from "@/lib/axios";
@@ -14,7 +14,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { ref, inView } = useInView();
-  const [searchInput, setSearchInput] = useState("");
+  const queryClient = useQueryClient();
+  const [searchInput, setSearchInput] = useState("a");
   const [searchMovieParam, setSearchMovieParam] = useState({
     query: "a",
     page: 1,
@@ -31,8 +32,8 @@ export default function Home() {
     status,
     refetch,
   } = useInfiniteQuery(
-    "searchMovie",
-    async ({ pageParam = searchMovieParam.page }) => {
+    ["searchMovie", searchMovieParam],
+    async ({ pageParam = 1 }) => {
       const response = await axiosLib.get("search/movie", {
         params: {
           query: searchMovieParam.query,
@@ -40,12 +41,14 @@ export default function Home() {
         },
       });
       const data = response.data;
-      setSearchMovieParam((old) => ({ ...old, page: data.page }));
       return data;
     },
     {
-      getPreviousPageParam: (firstPage) => searchMovieParam.page - 1,
-      getNextPageParam: (lastPage) => searchMovieParam.page + 1,
+      refetchOnWindowFocus: false,
+      getNextPageParam: (lastPage) => {
+        const nextpage = lastPage.page + 1;
+        return nextpage <= lastPage.total_pages ? nextpage : undefined;
+      },
     }
   );
 
@@ -60,9 +63,14 @@ export default function Home() {
   function handleSearch(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    setSearchMovieParam((old) => ({ ...old, query: searchInput }));
+    setSearchMovieParam((old) => ({ ...old, page: 1, query: searchInput }));
 
-    refetch();
+    // refetch();
+    // refetch({
+    //   // refetchPage: (page, index) => index === 0,
+    // });
+    // queryClient.resetQueries([]);
+    // queryClient.refetchQueries(["searchMovie"], {});
   }
 
   function handleChangeSearchInput(e: FormEvent<HTMLInputElement>) {
@@ -131,7 +139,7 @@ export default function Home() {
         id="movie-list"
         className="w-full max-w-4xl p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-stretch justify-items-center "
       >
-        {isFetching ? (
+        {isFetching && !isFetchingNextPage ? (
           Array(5)
             .fill(1)
             .map((_, index) => <MovieCardSkeleton key={index} />)
