@@ -9,11 +9,12 @@ const createJestConfig = nextJest({
 /** @type {import('jest').Config} */
 const config = {
   // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  //   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
+  // setupFilesAfterEnv: ["./jest.setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  // setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
   //   export default {
-  // setupFilesAfterEnv: ["@/setupTests.ts"],
-    // }
+  // setupFilesAfterEnv: ["./setupTests.ts"],
+  //   }
 
   testEnvironment: "jest-environment-jsdom",
 };

@@ -150,7 +150,7 @@ export default function Home() {
           </div>
         ) : (
           data?.pages?.map((page) =>
-            page?.results?.map((item) => (
+            page?.results?.map((item: any) => (
               <MovieCard
                 key={item.id}
                 title={item.title}
