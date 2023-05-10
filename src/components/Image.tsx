@@ -1,12 +1,11 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import { useState } from "react";
 
 export const IMAGE_NOT_FOUND_SRC = "/image_not_found.jpg";
 
-export interface IImageProps {
+export interface IImageProps extends ImageProps {
   src: string;
   alt: string;
-  props: object;
 }
 
 export default function Images({ src, alt, ...props }: IImageProps) {
