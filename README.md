@@ -1,38 +1,105 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Movie App Next Js</h1>
 
-## Getting Started
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/malikmal/movie-app-nextjs?color=56BEB8">
 
-First, run the development server:
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/malikmal/movie-app-nextjs?color=56BEB8">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/malikmal/movie-app-nextjs?color=56BEB8">
+
+  <img alt="License" src="https://img.shields.io/github/license/malikmal/movie-app-nextjs?color=56BEB8">
+
+  <img alt="Github issues" src="https://img.shields.io/github/issues/malikmal/movie-app-nextjs?color=56BEB8" />
+
+  <img alt="Github forks" src="https://img.shields.io/github/forks/malikmal/movie-app-nextjs?color=56BEB8" />
+
+  <img alt="Github stars" src="https://img.shields.io/github/stars/malikmal/movie-app-nextjs?color=56BEB8" />
+</p>
+
+<!-- Status -->
+
+<!-- <h4 align="center">
+	🚧  Paper still reviewed...  🚧
+</h4>  -->
+
+<hr>
+
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/malikmal" target="_blank">Author</a>
+</p>
+
+<br>
+
+## :dart: About
+
+Nextjs project example build movie app for movie list information with search features.
+
+## :sparkles: Features
+
+:heavy_check_mark: Feature 1; Integrated themoviedb.org database
+:heavy_check_mark: Feature 2; Search movie
+:heavy_check_mark: Feature 3; Scroll infinite pagination
+
+## :rocket: Technologies
+
+The following tools were used in this project:
+
+- [Next Js](https://nextjs.org/)
+- [React js](https://react.dev/)
+- [Jest js](https://jestjs.io/)
+- [React Query](https://tanstack.com/query/latest)
+- [Tailwind](https://tailwindcss.com/)
+
+## :white_check_mark: Requirements
+
+```
+- NodeJS 16
+- themoviedb api credentials
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :checkered_flag: Starting
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# Clone this project
+$ git clone https://github.com/Malikmal/movie-app-nextjs
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# get inside project directory
+$ cd movie-app-nextjs
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+# copy .env.example to .env.local
+$ cp .env.example .env.local
 
-To learn more about Next.js, take a look at the following resources:
+# fill env base url and credential token from themoviedb
+$ nano .env.local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# install packages
+$ npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# if you want to run test
+$ npm run test
 
-## Deploy on Vercel
+# if you want to run as development
+$ npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# if you want to run for production
+$ npm run build && npm run start
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+
+## :memo: License
+
+<!-- This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file. -->
+
+Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">[Ikmalil Birri](https://www.linkedin.com/in/ikmalil-birri-99b11611a/)</a>
+
+&#xa0;
+
+<a href="#top">Back to top</a>
