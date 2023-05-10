@@ -82,6 +82,7 @@ export default function Home() {
       className={`flex min-h-screen flex-col items-center justify-start py-12 space-y-4 ${inter.className}`}
     >
       <section
+        data-testid="form-search"
         id="form"
         className="w-full max-w-sm inline-flex justify-center items-center gap-2"
       >
