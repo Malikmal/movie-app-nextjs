@@ -14,6 +14,7 @@ export default function Images({ src, alt, ...props }: IImageProps) {
 
   return (
     <Image
+      data-testid="image"
       {...props}
       alt={alt}
       src={imgSrc}

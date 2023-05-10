@@ -10,7 +10,10 @@ export interface IMovieCardProps {
 
 export default function MovieCard(props: IMovieCardProps) {
   return (
-    <div className="bg-white w-full h-full max-w-sm rounded-lg shadow-md overflow-hidden flex flex-col">
+    <div
+      data-testid="movie-card"
+      className="bg-white w-full h-full max-w-sm rounded-lg shadow-md overflow-hidden flex flex-col"
+    >
       <Image
         src={`https://image.tmdb.org/t/p/w300/${props.backdrop_path}`}
         alt={props.title}
